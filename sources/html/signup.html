@@ -1,0 +1,27 @@
+<div class="col-sm-12">
+  <br>  <h1 class="text-center">SignUp</h1> 
+</div>
+<div class="row">
+       <div class="col-sm-3"></div>
+           <div class="col-sm-6">
+               <form action="http://localhost:3000/rdata" method="POST">
+                   <div class="form-group">
+                           <label for="name">Name</label>
+                           <input class="form-control" id="name" type="text" placeholder="you didn't forget it,did you?"  name="name" required></div>
+                       <div class="form-group">
+                           <label for="email">Email</label>
+                           <input class="form-control" id="email" type="email" placeholder="it's probably gmail :P " name="email"required></div>
+                       <div class="form-group">
+                           <label for="uname">Username</label>
+                           <input class="form-control" id="uname" type="text" placeholder="what's your alias?" name="uname"required></div>
+                       <div class="form-group"> 
+                           <label for="pass">Password</label>
+                           <input class="form-control" id="pass" type="password" placeholder="choose carefully" name="pass"required></div>
+            <div class="row">       
+               <div class="col-sm-3">  <button class="btn btn-warning" type="submit" >Register</button></div> 
+                <div class="col-sm-3"><button class="btn btn-dark" type="button" onclick="loadDoc('/html/right.html',back)" >Back</button></div>
+            </div> 
+               </form>
+           </div>
+      
+</div>
