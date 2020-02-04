@@ -122,6 +122,28 @@ app.get('/notevalues',function(req,res)
   })
 })
 
+//send user name and email
+app.get('/userdata',function(req,res)
+{
+  var curruser=new user();
+  user.findOne({'name':req.cookies.name},function(err,user)
+  {
+    if(err)
+      return console.log('error in finding the user');
+    else if(user!=null)
+    {
+      curruser=user;
+      var ans=0;   
+      var uobj=
+      {
+        name:user.name,
+        email:user.email
+      } ;
+      res.send(uobj);
+    }
+  })
+})
+
 //deleting the given note 
 app.get('/notedel/:val',function(req,res)
 {

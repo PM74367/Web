@@ -5,6 +5,7 @@ app.controller('ctrl',function($scope,$http)
 {
     $http.get('/notevalues').then(function(response)
     {
+        console.log('here');
         console.log(response.data);
        $scope.obj=response.data;
     })
