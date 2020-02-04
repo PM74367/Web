@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Homepage</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -10,35 +9,57 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
   <script src="http://localhost:3000/js/angmain.js"></script>
 </head>
-
-<body style="background-color:#5CDB95;">
-<div class="container-fluid">  
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand " href="/html/main.html" ><h5>ignis</h5></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item ">
-              <a class="nav-link" href="http://localhost:3000/notepage" target="_self"><h5>Notes</h5></a>
-            </li>
-            <li class="nav-item dropdown" style="position: absolute; right:0px; font-size: large;">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Info</a>
-              <div class="dropdown-menu dropdown-menu-right" ng-app="myapp" ng-controller="myctrl">
-                <h6 class="dropdown-header">Name</h6>
-                <a class="dropdown-item" href="#">{{name}}</a>
-                <h6 class="dropdown-header">Email</h6>
-                <a class="dropdown-item" href="#">{{email}}</a>
-              </div>
-            </li>
-           
+      <body style="background-size:cover;" class="carousel slide"  data-ride="carousel" data-interval="2500">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+          <a class="navbar-brand " href="/html/main.html" ><h5>ignis</h5></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item ">
+                <a class="nav-link" href="http://localhost:3000/notepage" ><h5>Notes</h5></a>
+              </li>
+              <li class="nav-item dropdown" style="position: absolute; right:0px; font-size: large;">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">User Info</a>
+                <div class="dropdown-menu dropdown-menu-right" ng-app="myapp" ng-controller="myctrl">
+                  <h6 class="dropdown-header">Name</h6>
+                  <a class="dropdown-item font-weight-bold" href="#">{{name}}</a>
+                  <h6 class="dropdown-header">Email</h6>
+                  <a class="dropdown-item font-weight-bold" href="#">{{email}}</a>
+                </div>
+              </li>
+            </div>
+          </ul>
+        </nav>
+        
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/images/bg/2.png"  width=100%;>
+            <div class="carousel-caption">
+              <h3>WELCOME TO HOMEPAGE!</h3>
+            </div>
           </div>
-        </ul>
-      </nav>
-     
-</div>
+          <div class="carousel-item ">
+            <img src="/images/bg/3.jpg"  width=100%;>
+            <div class="carousel-caption">
+              <h3>LET THE FIRE SPREAD WILDLY!!</h3>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <img src="/images/bg/4.jpg"  width=100%;>
+            <div class="carousel-caption">
+              <h3>USE NOTES TO STORE YOU THOUGHTS!!!</h3>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <img src="/images/bg/5.jpg"  width=100%;>
+            <div class="carousel-caption">
+              <h3>YOU CAN CHECK YOUR INFO ON TOP RIGHT!!!!</h3>
+            </div>
+          </div>
+        </div>
 </body>
 
 </html>

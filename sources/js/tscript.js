@@ -4,7 +4,8 @@ var z=document.getElementById('an');
 
 function addn()//creating a dom to add note
 {
-  
+
+    document.getElementById('bdy').style.backgroundImage="url('/images/notec/white.jpg')"
     y.style.visibility="visible";
     z.style.visibility="hidden";
 
@@ -57,7 +58,7 @@ function addn()//creating a dom to add note
 }
 function deln()//delete the dom created in adding notes
 {
-
+  document.getElementById('bdy').style.backgroundImage="url('/images/notec/black.jpg')"
     console.log("in delete function");
     for(var i=div1.childElementCount-1;i>=0;i--)
     {
