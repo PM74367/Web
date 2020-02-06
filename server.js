@@ -5,6 +5,7 @@ var app = express()
 var bodyparser=require('body-parser');
 var user=require('./sources/js/mongo');
 var cookieparser=require('cookie-parser');
+var flag=0;
 }
 
 //middleware
@@ -48,6 +49,7 @@ app.post('/rdata',function(req,res)
 //login page data handling
 app.post('/home',function(req,res)
 {
+  
   user.findOne({'uname':req.body.uname},
   function(err,user)
   {
@@ -68,6 +70,7 @@ app.post('/home',function(req,res)
           {console.log('password correct');
           res.clearCookie('name');
           res.cookie('name',user.name);//sets cookie name='user name'
+          flag=1;
           res.redirect('/html/main.html')}
         else   
           {console.log('password wrong');res.redirect('/')}
@@ -99,16 +102,20 @@ app.post('/notes',function(req,res)
       res.redirect('/notepage');
     })
     }
-  });
+    else if(user==null)
+      {console.log("no user found");
+        res.send("user not found");
+  }
+    });
  
 })
 
 //retrieving data from database
-app.get('/notevalues',function(req,res)
+app.post('/notevalues',function(req,res)
 {
   // res.send("hello");
-  
-  user.findOne({'name':req.cookies.name},function(err,user)
+    if(flag==1)
+ { user.findOne({'name':req.cookies.name},function(err,user)
   {
     // console.log("in function");
     if(err)
@@ -119,13 +126,18 @@ app.get('/notevalues',function(req,res)
       res.send(user.notes);
 
     }
-  })
+    else if(user==null)
+    {
+      res.send("no user found");
+    }
+  })}
 })
 
 //send user name and email
-app.get('/userdata',function(req,res)
+app.post('/userdata',function(req,res)
 {
-  var curruser=new user();
+  if(flag=1)
+ { var curruser=new user();
   user.findOne({'name':req.cookies.name},function(err,user)
   {
     if(err)
@@ -141,11 +153,13 @@ app.get('/userdata',function(req,res)
       } ;
       res.send(uobj);
     }
-  })
+  })}
+  else 
+  res.send("no user found");
 })
 
 //deleting the given note 
-app.get('/notedel/:val',function(req,res)
+app.post('/notedel/:val',function(req,res)
 {
   var curruser=new user();
   console.log(req.params.val);
@@ -184,4 +198,10 @@ app.get('/notedel/:val',function(req,res)
   //res.redirect('/html/notes.html');
 })
 
+app.get('/logout',function(req,res)
+{
+  console.log("logged out");
+  res.clearCookie('name');
+  res.redirect('/');
+})
 app.listen(3000);

@@ -1,7 +1,7 @@
 var myapp=angular.module('myapp',[]);
 myapp.controller('myctrl',function($scope,$http)
 {
-    $http.get('/userdata').then(function(response)
+    $http.post('/userdata').then(function(response)
     {
        var obj=response.data;
        $scope.name=obj.name;

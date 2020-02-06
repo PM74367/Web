@@ -84,12 +84,12 @@ function delnc(x)//deleting note from array in mongodb
         {  
           var dtbd=x.parentNode.parentNode;
           dtbd.remove();
-          console.log(dtbd);
-          delnote(); 
+         // console.log(dtbd);
+         
         }
       }
     };
-    xhttp.open("GET","http://localhost:3000/notedel"+"/"+y, true);
+    xhttp.open("post","http://localhost:3000/notedel"+"/"+y, true);
     xhttp.send();
     
 }
